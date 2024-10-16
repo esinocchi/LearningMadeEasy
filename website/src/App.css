@@ -1,12 +1,10 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-family: 'Arial', sans-serif;
+  align-items: center;
+  background-color: #f0f0f0;
 }
 
 .App-logo {
@@ -21,18 +19,17 @@
 }
 
 .App-header {
-  padding: 2rem;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-  font-size: 3rem;
-  color: #61dafb;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 4rem;
+  background: linear-gradient(to right, #333, #666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideIn 1s ease-out;
 }
 
 .creators {
@@ -52,4 +49,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.button-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.auth-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.auth-button:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

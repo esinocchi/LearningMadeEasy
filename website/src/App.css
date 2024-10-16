@@ -2,9 +2,10 @@
   text-align: center;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
+  background: linear-gradient(to bottom, #6d98c4, #bdc3c7);
 }
 
 .App-logo {
@@ -25,11 +26,32 @@
 }
 
 .title {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
   font-size: 4rem;
-  background: linear-gradient(to right, #333, #666);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: slideIn 1s ease-out;
+  font-weight: bold;
+  color: black;
+}
+
+.subtitle {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: black;
+  margin-top: 0.5rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: black;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
 }
 
 .creators {
@@ -51,13 +73,11 @@
   }
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
+@keyframes blink {
+  0%, 100% {
     opacity: 0;
   }
-  100% {
-    transform: translateX(0);
+  50% {
     opacity: 1;
   }
 }
@@ -65,20 +85,33 @@
 .button-container {
   margin-top: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .auth-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #000;
-  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: black;
+  color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 .auth-button:hover {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
 }

@@ -6,7 +6,7 @@ function App() {
   const [subtitle, setSubtitle] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const fullText = 'LearningMadeEasy';
-  const fullSubtitle = 'Your favorite AI tutor';
+  const fullSubtitle = 'Your favorite AI tutor.';
   const typingSpeed = 100;
 
   useEffect(() => {

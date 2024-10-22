@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
+import Quiz from './Quiz'; // Import the Quiz component
 
 function App() {
   const [text, setText] = useState('');
@@ -50,24 +52,30 @@ function App() {
   }, [fullText, fullSubtitle]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="title">
-          {text}
-          {showCursor && <span className="cursor" />}
-        </h1>
-        <div className="subtitle-container">
-          <h2 className="subtitle">
-            {subtitle}
-            {showCursor && subtitle.length > 0 && <span className="cursor" />}
-          </h2>
-        </div>
-        <div className="button-container">
-          <button className="auth-button" onClick={handleSignUp}>Sign Up</button>
-          <button className="auth-button" onClick={handleLogIn}>Log In</button>
-        </div>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1 className="title">
+            {text}
+            {showCursor && <span className="cursor" />}
+          </h1>
+          <div className="subtitle-container">
+            <h2 className="subtitle">
+              {subtitle}
+              {showCursor && subtitle.length > 0 && <span className="cursor" />}
+            </h2>
+          </div>
+          <div className="button-container">
+            <button className="auth-button" onClick={handleSignUp}>Sign Up</button>
+            <button className="auth-button" onClick={handleLogIn}>Log In</button>
+            <Link to="/quiz" className="auth-button">Go to Quiz</Link> {/* Link to Quiz page */}
+          </div>
+        </header>
+        <Routes> {/* Changed from Switch to Routes */}
+          <Route path="/quiz" element={<Quiz />} /> {/* Updated component prop to element */}
+        </Routes> {/* Changed from Switch to Routes */}
+      </div>
+    </Router>
   );
 }
 

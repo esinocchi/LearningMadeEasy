@@ -9,6 +9,16 @@ function App() {
   const fullSubtitle = 'Your favorite AI tutor';
   const typingSpeed = 100;
 
+  const cognitoDomain = 'https://learningmadeeasy.auth.us-east-2.amazoncognito.com';
+
+  const handleSignUp = () => {
+    window.location.href = `${cognitoDomain}/signup`;
+  };
+
+  const handleLogIn = () => {
+    window.location.href = `${cognitoDomain}/login`;
+  };
+
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
@@ -53,8 +63,8 @@ function App() {
           </h2>
         </div>
         <div className="button-container">
-          <button className="auth-button">Sign Up</button>
-          <button className="auth-button">Log In</button>
+          <button className="auth-button" onClick={handleSignUp}>Sign Up</button>
+          <button className="auth-button" onClick={handleLogIn}>Log In</button>
         </div>
       </header>
     </div>
